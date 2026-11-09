@@ -2,6 +2,8 @@
 
 #include <QDebug>
 
+#include <utility>
+
 #include "../systemController.h"
 #include "core/utils/qrCodeUtils.h"
 #include "core/utils/utilities.h"
@@ -54,6 +56,33 @@ void ExportUiController::generateAwgConfig(const QString &serverId, int containe
     applyExportResult(result);
 }
 
+
+void ExportUiController::generateConfigs(const QString &serverId, int containerIndex, bool nativeFormat,
+                                        const QString &clientNames)
+{
+    m_configs.clear();
+
+    const auto batch = m_exportController->generateConfigs(serverId, containerIndex, nativeFormat, clientNames);
+    m_configs = batch.configs;
+
+    emit configsGenerated(m_configs.size());
+    if (batch.errorCode != ErrorCode::NoError) {
+        emit exportErrorOccurred(batch.errorCode);
+    }
+}
+
+bool ExportUiController::saveConfigsToDirectory(const QString &directory)
+{
+    QList<QPair<QString, QString>> files;
+    for (const auto &config : std::as_const(m_configs)) {
+        files.append({ config.fileName, config.config });
+    }
+    const bool saved = SystemController::saveFiles(directory, files);
+    if (saved) {
+        m_configs.clear();
+    }
+    return saved;
+}
 
 void ExportUiController::generateXrayConfig(const QString &serverId, const QString &clientName)
 {

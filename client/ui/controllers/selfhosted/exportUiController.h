@@ -25,6 +25,10 @@ public slots:
     void generateWireGuardConfig(const QString &serverId, const QString &clientName);
     void generateAwgConfig(const QString &serverId, int containerIndex, const QString &clientName);
     void generateXrayConfig(const QString &serverId, const QString &clientName);
+
+    void generateConfigs(const QString &serverId, int containerIndex, bool nativeFormat, const QString &clientNames);
+    bool saveConfigsToDirectory(const QString &directory);
+
     void generateQrFromString(const QString &text);
     void generateQrFromStringRaw(const QString &text);
 
@@ -49,6 +53,7 @@ signals:
     void exportErrorOccurred(ErrorCode errorCode);
 
     void exportConfigChanged();
+    void configsGenerated(int count);
 
     void saveFile(const QString &fileName, const QString &data);
 
@@ -61,6 +66,7 @@ private:
 
     QString m_config;
     QString m_nativeConfigString;
+    QList<ExportController::ExportedConfig> m_configs;
     QList<QString> m_qrCodes;
 };
 

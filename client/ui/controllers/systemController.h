@@ -2,7 +2,10 @@
 #define SYSTEMCONTROLLER_H
 
 #include <QByteArray>
+#include <QList>
 #include <QObject>
+#include <QPair>
+#include <QString>
 
 class SystemController : public QObject
 {
@@ -13,6 +16,8 @@ public:
     static bool saveFile(const QString &fileName, const QString &data);
     static bool saveFile(const QString &fileName, const QByteArray &data, const QString &mimeType = QStringLiteral("text/plain"),
                          bool *cancelled = nullptr);
+    static bool saveFiles(const QString &directory, const QList<QPair<QString, QString>> &files,
+                          bool revealInFileManager = true);
     static bool readFile(const QString &fileName, QByteArray &data);
     static bool readFile(const QString &fileName, QString &data);
 

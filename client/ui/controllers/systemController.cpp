@@ -20,6 +20,20 @@
     #include <CoreFoundation/CoreFoundation.h>
 #endif
 
+namespace
+{
+    void openDirectory(const QString &path)
+    {
+#ifdef MACOS_NE
+        Q_UNUSED(path);
+#elif defined(Q_OS_MAC)
+        QDesktopServices::openUrl("file://" + path);
+#else
+        QDesktopServices::openUrl(path);
+#endif
+    }
+}
+
 SystemController::SystemController(QObject *parent)
     : QObject(parent)
 {
@@ -67,19 +81,33 @@ bool SystemController::saveFile(const QString &fileName, const QByteArray &data,
     return IosController::Instance()->shareText(filesToSend, cancelled);
 #else
     Q_UNUSED(cancelled);
-    QFileInfo fi(fileName);
-
-#ifdef Q_OS_MAC
-    const auto url = "file://" + fi.absoluteDir().absolutePath();
-#else
-    const auto url = fi.absoluteDir().absolutePath();
-#endif
-
-#ifndef MACOS_NE
-    QDesktopServices::openUrl(url);
-#endif
+    openDirectory(QFileInfo(fileName).absoluteDir().absolutePath());
     return true;
 #endif
+}
+
+bool SystemController::saveFiles(const QString &directory, const QList<QPair<QString, QString>> &files,
+                                 bool revealInFileManager)
+{
+    if (files.isEmpty()) {
+        return false;
+    }
+
+    const QDir dir(directory);
+    for (const auto &file : files) {
+        const QString fileName = dir.filePath(file.first);
+        const QByteArray data = file.second.toUtf8();
+        QFile out(fileName);
+        if (!out.open(QIODevice::WriteOnly) || out.write(data) != data.size()) {
+            qWarning() << "SystemController::saveFiles: write failed" << fileName;
+            return false;
+        }
+    }
+
+    if (revealInFileManager) {
+        openDirectory(dir.absolutePath());
+    }
+    return true;
 }
 
 bool SystemController::readFile(const QString &fileName, QByteArray &data)
