@@ -16,7 +16,8 @@ private slots:
     void splitsClientNames();
     void dropsDuplicateAndEmptyClientNames();
     void keepsLongNamesSharingPrefix();
-    void limitsClientNameLength();
+    void limitsFileNameLength();
+    void limitsBatchSize();
     void makesFileNamesUnique();
 };
 
@@ -68,15 +69,22 @@ void TestConfigFileName::dropsDuplicateAndEmptyClientNames()
 
 void TestConfigFileName::keepsLongNamesSharingPrefix()
 {
-    const QStringList names = Utils::clientNames("Aleksandr Ivanovich Petrov, Aleksandr Ivanovich Sokolov");
-    QCOMPARE(names.size(), 2);
-    QCOMPARE(names.first(), QString("Aleksandr Ivanovich"));
+    const QStringList expected = { "Aleksandr Ivanovich Petrov", "Aleksandr Ivanovich Sokolov" };
+    QCOMPARE(Utils::clientNames("Aleksandr Ivanovich Petrov, Aleksandr Ivanovich Sokolov"), expected);
 }
 
-void TestConfigFileName::limitsClientNameLength()
+void TestConfigFileName::limitsFileNameLength()
 {
-    const QString longName(25, 'a');
-    QCOMPARE(Utils::clientNames(longName), QStringList { QString(20, 'a') });
+    QCOMPARE(Utils::configFileName(QString(100, 'a')), QString(64, 'a'));
+}
+
+void TestConfigFileName::limitsBatchSize()
+{
+    QStringList longList;
+    for (int i = 0; i < 25; ++i) {
+        longList << QString("user%1").arg(i);
+    }
+    QCOMPARE(Utils::clientNames(longList.join(",")).size(), 20);
 }
 
 void TestConfigFileName::makesFileNamesUnique()

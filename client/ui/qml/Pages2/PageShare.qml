@@ -169,8 +169,8 @@ PageType {
 
         onUsersCreated: {
             PageController.showBusyIndicator(true)
-            ExportController.updateClientManagementModel(ServersUiController.processedServerId,
-                                                         ServersUiController.processedContainerIndex)
+            ExportController.updateClientManagementModel(multipleUsersSheet.serverId,
+                                                         multipleUsersSheet.containerIndex)
             PageController.showBusyIndicator(false)
         }
     }

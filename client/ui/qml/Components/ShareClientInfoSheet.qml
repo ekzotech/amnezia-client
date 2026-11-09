@@ -154,7 +154,7 @@ SheetType {
 
                 headerText: qsTranslate("PageShare", "Client name")
                 textField.text: root.clientName
-                textField.maximumLength: 20
+                textField.maximumLength: 64
                 checkEmptyText: true
             }
 

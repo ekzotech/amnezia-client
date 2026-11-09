@@ -16,7 +16,6 @@ SheetType {
     property int containerIndex
     property bool nativeFormat
     property int generatedCount: 0
-    property bool generationFailed: false
 
     signal usersCreated()
 
@@ -27,7 +26,6 @@ SheetType {
         root.containerIndex = containerIndex
         root.nativeFormat = nativeFormat
         root.generatedCount = 0
-        root.generationFailed = false
         names.textAreaText = ""
         root.open()
     }
@@ -35,15 +33,11 @@ SheetType {
     Connections {
         target: ExportController
 
-        function onExportErrorOccurred(error) {
-            root.generationFailed = true
-        }
-
         function onConfigsGenerated(count) {
             root.generatedCount = count
             if (count > 0) {
                 folderDialog.open()
-            } else if (!root.generationFailed) {
+            } else {
                 PageController.showNotificationMessage(qsTranslate("PageShare", "No users created"))
             }
         }
@@ -88,7 +82,7 @@ SheetType {
             Layout.bottomMargin: 24
 
             headerText: qsTranslate("PageShare", "Create users")
-            descriptionText: qsTranslate("PageShare", "Enter one user name per line or separate the names with commas. A connection config is created for each user.")
+            descriptionText: qsTranslate("PageShare", "Enter up to 20 user names, one per line or separated by commas. A connection config is created for each user.")
         }
 
         TextAreaType {

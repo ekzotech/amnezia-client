@@ -81,8 +81,11 @@ QString Utils::getRandomString(int len)
 
 QString Utils::configFileName(const QString &clientName)
 {
+    constexpr int maxFileNameLength = 64;
+
     QString name = clientName;
     name.remove(QRegularExpression(QStringLiteral(R"([\\/:*?\"<>|\x00-\x1f])")));
+    name = name.left(maxFileNameLength);
     name.remove(QRegularExpression(QStringLiteral(R"((^[.\s]+)|([.\s]+$))")));
 
     if (name.isEmpty()) {
@@ -108,16 +111,20 @@ QStringList Utils::configFileNames(const QStringList &clientNames)
 
 QStringList Utils::clientNames(const QString &text)
 {
-    constexpr int maxClientNameLength = 20;
+    constexpr int maxClientsPerBatch = 20;
 
     QStringList names;
     const QStringList parts = text.split(QRegularExpression(QStringLiteral("[,\n\r]")));
     for (const QString &part : parts) {
+        if (names.size() >= maxClientsPerBatch) {
+            break;
+        }
+
         const QString name = part.trimmed();
         if (name.isEmpty() || names.contains(name, Qt::CaseInsensitive)) {
             continue;
         }
-        names.append(name.left(maxClientNameLength).trimmed());
+        names.append(name);
     }
     return names;
 }
