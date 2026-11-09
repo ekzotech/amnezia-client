@@ -6060,6 +6060,58 @@ Only one can be active at a time: VPN or local proxy</source>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="541"/>
+        <source>Create several users</source>
+        <translation>创建多个用户</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="41"/>
+        <source>No users created</source>
+        <translation>未创建用户</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="49"/>
+        <source>Save configs to</source>
+        <translation>将配置保存到</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="55"/>
+        <source>Failed to save the configs</source>
+        <translation>保存配置失败</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="59"/>
+        <source>%n config file(s) saved</source>
+        <translation>
+            <numerusform>已保存 %n 个配置文件</numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="65"/>
+        <source>The configs were created but not saved</source>
+        <translation>配置已创建，但未保存</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="84"/>
+        <source>Create users</source>
+        <translation>创建用户</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="85"/>
+        <source>Enter up to 20 user names, one per line or separated by commas. A connection config is created for each user.</source>
+        <translation>最多输入 20 个用户名，每行一个或用逗号分隔。将为每个用户创建一份连接配置。</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="93"/>
+        <source>User names</source>
+        <translation>用户名</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="100"/>
+        <source>Create and save</source>
+        <translation>创建并保存</translation>
+    </message>
 </context>
 <context>
     <name>PageShareConnection</name>

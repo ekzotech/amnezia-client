@@ -6060,6 +6060,58 @@ Only one can be active at a time: VPN or local proxy</source>
         <source>Cancel</source>
         <translation>کنسل</translation>
     </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="541"/>
+        <source>Create several users</source>
+        <translation>ایجاد چند کاربر</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="41"/>
+        <source>No users created</source>
+        <translation>هیچ کاربری ایجاد نشد</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="49"/>
+        <source>Save configs to</source>
+        <translation>ذخیره تنظیمات در پوشه</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="55"/>
+        <source>Failed to save the configs</source>
+        <translation>ذخیره تنظیمات انجام نشد</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="59"/>
+        <source>%n config file(s) saved</source>
+        <translation>
+            <numerusform>%n فایل تنظیمات ذخیره شد</numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="65"/>
+        <source>The configs were created but not saved</source>
+        <translation>تنظیمات ایجاد شدند اما ذخیره نشدند</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="84"/>
+        <source>Create users</source>
+        <translation>ایجاد کاربران</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="85"/>
+        <source>Enter up to 20 user names, one per line or separated by commas. A connection config is created for each user.</source>
+        <translation>حداکثر ۲۰ نام کاربری را وارد کنید، هر نام در یک خط یا با کاما جدا شده. برای هر کاربر یک پیکربندی اتصال ایجاد می‌شود.</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="93"/>
+        <source>User names</source>
+        <translation>نام‌های کاربری</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="100"/>
+        <source>Create and save</source>
+        <translation>ایجاد و ذخیره</translation>
+    </message>
 </context>
 <context>
     <name>PageShareConnection</name>

@@ -6060,6 +6060,58 @@ Only one can be active at a time: VPN or local proxy</source>
         <source>Cancel</source>
         <translation>ပယ်ဖျက်မည်</translation>
     </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="541"/>
+        <source>Create several users</source>
+        <translation>အသုံးပြုသူများစွာ ဖန်တီးမည်</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="41"/>
+        <source>No users created</source>
+        <translation>အသုံးပြုသူ မဖန်တီးရသေးပါ</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="49"/>
+        <source>Save configs to</source>
+        <translation>Config များကို ဤနေရာတွင် သိမ်းဆည်းမည်</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="55"/>
+        <source>Failed to save the configs</source>
+        <translation>Config များ သိမ်းဆည်း၍ မရပါ</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="59"/>
+        <source>%n config file(s) saved</source>
+        <translation>
+            <numerusform>Config ဖိုင် %n ခု သိမ်းဆည်းပြီးပါပြီ</numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="65"/>
+        <source>The configs were created but not saved</source>
+        <translation>Config များ ဖန်တီးပြီးသော်လည်း မသိမ်းဆည်းရသေးပါ</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="84"/>
+        <source>Create users</source>
+        <translation>အသုံးပြုသူများ ဖန်တီးမည်</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="85"/>
+        <source>Enter up to 20 user names, one per line or separated by commas. A connection config is created for each user.</source>
+        <translation>အသုံးပြုသူနာမည် ၂၀ အထိ ထည့်ပါ၊ တစ်ကြောင်းလျှင်တစ်ခု သို့မဟုတ် ကော်မာဖြင့် ခွဲပါ။ အသုံးပြုသူတစ်ဦးစီအတွက် ချိတ်ဆက်မှု config တစ်ခု ဖန်တီးပါမည်။</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="93"/>
+        <source>User names</source>
+        <translation>အသုံးပြုသူနာမည်များ</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="100"/>
+        <source>Create and save</source>
+        <translation>ဖန်တီးပြီး သိမ်းဆည်းမည်</translation>
+    </message>
 </context>
 <context>
     <name>PageShareConnection</name>

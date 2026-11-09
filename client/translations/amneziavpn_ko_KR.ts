@@ -6060,6 +6060,58 @@ Only one can be active at a time: VPN or local proxy</source>
         <source>Cancel</source>
         <translation>취소</translation>
     </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="541"/>
+        <source>Create several users</source>
+        <translation>여러 사용자 생성</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="41"/>
+        <source>No users created</source>
+        <translation>생성된 사용자가 없습니다</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="49"/>
+        <source>Save configs to</source>
+        <translation>구성을 저장할 위치</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="55"/>
+        <source>Failed to save the configs</source>
+        <translation>구성을 저장하지 못했습니다</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="59"/>
+        <source>%n config file(s) saved</source>
+        <translation>
+            <numerusform>구성 파일 %n개 저장됨</numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="65"/>
+        <source>The configs were created but not saved</source>
+        <translation>구성이 생성되었지만 저장되지 않았습니다</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="84"/>
+        <source>Create users</source>
+        <translation>사용자 생성</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="85"/>
+        <source>Enter up to 20 user names, one per line or separated by commas. A connection config is created for each user.</source>
+        <translation>사용자 이름을 최대 20개까지 한 줄에 하나씩 또는 쉼표로 구분해 입력하세요. 각 사용자마다 연결 구성이 생성됩니다.</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="93"/>
+        <source>User names</source>
+        <translation>사용자 이름</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="100"/>
+        <source>Create and save</source>
+        <translation>생성 및 저장</translation>
+    </message>
 </context>
 <context>
     <name>PageShareConnection</name>

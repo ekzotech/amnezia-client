@@ -6076,6 +6076,63 @@ Only one can be active at a time: VPN or local proxy</source>
         <source>Cancel</source>
         <translation>إلغاء</translation>
     </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="541"/>
+        <source>Create several users</source>
+        <translation>إنشاء عدة مستخدمين</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="41"/>
+        <source>No users created</source>
+        <translation>لم يتم إنشاء أي مستخدم</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="49"/>
+        <source>Save configs to</source>
+        <translation>حفظ التكوينات في</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="55"/>
+        <source>Failed to save the configs</source>
+        <translation>فشل حفظ التكوينات</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="59"/>
+        <source>%n config file(s) saved</source>
+        <translation>
+            <numerusform>لم يتم حفظ أي ملف تكوين</numerusform>
+            <numerusform>تم حفظ %n ملف تكوين</numerusform>
+            <numerusform>تم حفظ ملفي تكوين</numerusform>
+            <numerusform>تم حفظ %n ملفات تكوين</numerusform>
+            <numerusform>تم حفظ %n ملف تكوين</numerusform>
+            <numerusform>تم حفظ %n ملف تكوين</numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="65"/>
+        <source>The configs were created but not saved</source>
+        <translation>تم إنشاء التكوينات ولكن لم يتم حفظها</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="84"/>
+        <source>Create users</source>
+        <translation>إنشاء مستخدمين</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="85"/>
+        <source>Enter up to 20 user names, one per line or separated by commas. A connection config is created for each user.</source>
+        <translation>أدخل حتى 20 اسم مستخدم، اسم واحد في كل سطر أو مفصولة بفواصل. سيتم إنشاء تكوين اتصال لكل مستخدم.</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="93"/>
+        <source>User names</source>
+        <translation>أسماء المستخدمين</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="100"/>
+        <source>Create and save</source>
+        <translation>إنشاء وحفظ</translation>
+    </message>
 </context>
 <context>
     <name>PageShareConnection</name>

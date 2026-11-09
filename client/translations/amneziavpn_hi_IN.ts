@@ -6063,6 +6063,59 @@ Only one can be active at a time: VPN or local proxy</source>
         <source>Cancel</source>
         <translation>रद्द करना</translation>
     </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="541"/>
+        <source>Create several users</source>
+        <translation>कई उपयोगकर्ता बनाएँ</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="41"/>
+        <source>No users created</source>
+        <translation>कोई उपयोगकर्ता नहीं बनाया गया</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="49"/>
+        <source>Save configs to</source>
+        <translation>कॉन्फ़िगरेशन कहाँ सहेजें</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="55"/>
+        <source>Failed to save the configs</source>
+        <translation>कॉन्फ़िगरेशन सहेजने में विफल</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="59"/>
+        <source>%n config file(s) saved</source>
+        <translation>
+            <numerusform>%n कॉन्फ़िगरेशन फ़ाइल सहेजी गई</numerusform>
+            <numerusform>%n कॉन्फ़िगरेशन फ़ाइलें सहेजी गईं</numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="65"/>
+        <source>The configs were created but not saved</source>
+        <translation>कॉन्फ़िगरेशन बनाए गए, लेकिन सहेजे नहीं गए</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="84"/>
+        <source>Create users</source>
+        <translation>उपयोगकर्ता बनाएँ</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="85"/>
+        <source>Enter up to 20 user names, one per line or separated by commas. A connection config is created for each user.</source>
+        <translation>अधिकतम 20 उपयोगकर्ता नाम दर्ज करें, प्रति पंक्ति एक या अल्पविराम से अलग करके। प्रत्येक उपयोगकर्ता के लिए एक कनेक्शन कॉन्फ़िगरेशन बनाया जाएगा।</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="93"/>
+        <source>User names</source>
+        <translation>उपयोगकर्ता नाम</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="100"/>
+        <source>Create and save</source>
+        <translation>बनाएँ और सहेजें</translation>
+    </message>
 </context>
 <context>
     <name>PageShareConnection</name>

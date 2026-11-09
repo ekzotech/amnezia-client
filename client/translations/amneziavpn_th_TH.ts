@@ -6060,6 +6060,58 @@ Only one can be active at a time: VPN or local proxy</source>
         <source>Cancel</source>
         <translation>ยกเลิก</translation>
     </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="541"/>
+        <source>Create several users</source>
+        <translation>สร้างผู้ใช้หลายคน</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="41"/>
+        <source>No users created</source>
+        <translation>ไม่ได้สร้างผู้ใช้</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="49"/>
+        <source>Save configs to</source>
+        <translation>บันทึกการกำหนดค่าไปที่</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="55"/>
+        <source>Failed to save the configs</source>
+        <translation>ไม่สามารถบันทึกการกำหนดค่าได้</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="59"/>
+        <source>%n config file(s) saved</source>
+        <translation>
+            <numerusform>บันทึกไฟล์การกำหนดค่า %n ไฟล์แล้ว</numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="65"/>
+        <source>The configs were created but not saved</source>
+        <translation>สร้างการกำหนดค่าแล้วแต่ยังไม่ได้บันทึก</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="84"/>
+        <source>Create users</source>
+        <translation>สร้างผู้ใช้</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="85"/>
+        <source>Enter up to 20 user names, one per line or separated by commas. A connection config is created for each user.</source>
+        <translation>ป้อนชื่อผู้ใช้ไม่เกิน 20 ชื่อ บรรทัดละหนึ่งชื่อหรือคั่นด้วยจุลภาค ระบบจะสร้างการกำหนดค่าการเชื่อมต่อให้ผู้ใช้แต่ละคน</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="93"/>
+        <source>User names</source>
+        <translation>ชื่อผู้ใช้</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/ShareMultipleUsersSheet.qml" line="100"/>
+        <source>Create and save</source>
+        <translation>สร้างและบันทึก</translation>
+    </message>
 </context>
 <context>
     <name>PageShareConnection</name>
