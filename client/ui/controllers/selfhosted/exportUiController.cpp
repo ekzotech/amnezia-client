@@ -1,6 +1,7 @@
 #include "exportUiController.h"
 
 #include <QDebug>
+#include <QUrl>
 
 #include <utility>
 
@@ -65,19 +66,19 @@ void ExportUiController::generateConfigs(const QString &serverId, int containerI
     const auto batch = m_exportController->generateConfigs(serverId, containerIndex, nativeFormat, clientNames);
     m_configs = batch.configs;
 
-    emit configsGenerated(m_configs.size());
     if (batch.errorCode != ErrorCode::NoError) {
         emit exportErrorOccurred(batch.errorCode);
     }
+    emit configsGenerated(m_configs.size());
 }
 
-bool ExportUiController::saveConfigsToDirectory(const QString &directory)
+bool ExportUiController::saveConfigsToDirectory(const QUrl &directory)
 {
     QList<QPair<QString, QString>> files;
     for (const auto &config : std::as_const(m_configs)) {
         files.append({ config.fileName, config.config });
     }
-    const bool saved = SystemController::saveFiles(directory, files);
+    const bool saved = SystemController::saveFiles(directory.toLocalFile(), files);
     if (saved) {
         m_configs.clear();
     }

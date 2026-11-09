@@ -162,6 +162,19 @@ PageType {
         }
     }
 
+    ShareMultipleUsersSheet {
+        id: multipleUsersSheet
+
+        parent: root
+
+        onUsersCreated: {
+            PageController.showBusyIndicator(true)
+            ExportController.updateClientManagementModel(ServersUiController.processedServerId,
+                                                         ServersUiController.processedContainerIndex)
+            PageController.showBusyIndicator(false)
+        }
+    }
+
     SheetType {
         id: shareFullAccessDrawer
 
@@ -474,7 +487,6 @@ PageType {
 
                 text: root.connectionTypesModel[currentIndex] ? root.connectionTypesModel[currentIndex].name : ""
 
-                visible: accessTypeSelector.currentIndex === 0
                 enabled: root.connectionTypesModel.length > 1
 
                 descriptionText: qsTr("Connection format")
@@ -513,6 +525,26 @@ PageType {
                         ExportController.generateConfig(root.connectionTypesModel[exportTypeSelector.currentIndex].type)
                     }
                 }
+            }
+
+            ButtonType {
+                id: createUsersButton
+
+                Layout.fillWidth: true
+                Layout.topMargin: 24
+                Layout.leftMargin: 16
+                Layout.rightMargin: 16
+
+                visible: accessTypeSelector.currentIndex === 1 && GC.isDesktop()
+                enabled: root.shareButtonEnabled
+
+                text: qsTr("Create several users")
+                leftImageSource: "qrc:/images/controls/plus.svg"
+
+                onClicked: multipleUsersSheet.openFor(ServersUiController.processedServerId,
+                                                      ServersUiController.processedContainerIndex,
+                                                      root.connectionTypesModel[exportTypeSelector.currentIndex].type
+                                                      !== PageShare.ConfigType.AmneziaConnection)
             }
 
             SectionHeaderType {

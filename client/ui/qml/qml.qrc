@@ -4,6 +4,7 @@
         <file>Components/ConfigContentSheet.qml</file>
         <file>Components/QrCodeCard.qml</file>
         <file>Components/ShareClientInfoSheet.qml</file>
+        <file>Components/ShareMultipleUsersSheet.qml</file>
         <file>Components/CountryListItem.qml</file>
         <file>Components/FavoriteButton.qml</file>
         <file>Components/ServerListItem.qml</file>

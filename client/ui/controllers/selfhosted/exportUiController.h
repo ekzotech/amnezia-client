@@ -2,6 +2,7 @@
 #define EXPORTUICONTROLLER_H
 
 #include <QObject>
+#include <QUrl>
 
 #include "core/controllers/selfhosted/exportController.h"
 #include "core/utils/errorCodes.h"
@@ -27,7 +28,7 @@ public slots:
     void generateXrayConfig(const QString &serverId, const QString &clientName);
 
     void generateConfigs(const QString &serverId, int containerIndex, bool nativeFormat, const QString &clientNames);
-    bool saveConfigsToDirectory(const QString &directory);
+    bool saveConfigsToDirectory(const QUrl &directory);
 
     void generateQrFromString(const QString &text);
     void generateQrFromStringRaw(const QString &text);
