@@ -91,6 +91,37 @@ QString Utils::configFileName(const QString &clientName)
     return name;
 }
 
+QStringList Utils::configFileNames(const QStringList &clientNames)
+{
+    QStringList fileNames;
+    for (const QString &clientName : clientNames) {
+        const QString baseName = configFileName(clientName);
+        QString fileName = baseName;
+        int suffix = 2;
+        while (fileNames.contains(fileName, Qt::CaseInsensitive)) {
+            fileName = baseName + "-" + QString::number(suffix++);
+        }
+        fileNames.append(fileName);
+    }
+    return fileNames;
+}
+
+QStringList Utils::clientNames(const QString &text)
+{
+    constexpr int maxClientNameLength = 20;
+
+    QStringList names;
+    const QStringList parts = text.split(QRegularExpression(QStringLiteral("[,\n\r]")));
+    for (const QString &part : parts) {
+        const QString name = part.trimmed();
+        if (name.isEmpty() || names.contains(name, Qt::CaseInsensitive)) {
+            continue;
+        }
+        names.append(name.left(maxClientNameLength).trimmed());
+    }
+    return names;
+}
+
 QString Utils::VerifyJsonString(const QString &source)
 {
     QJsonParseError error;

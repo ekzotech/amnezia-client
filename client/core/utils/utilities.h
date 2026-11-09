@@ -4,6 +4,7 @@
 #include <QRegExp>
 #include <QRegularExpression>
 #include <QString>
+#include <QStringList>
 #include <QJsonDocument>
 
 #ifdef Q_OS_WIN
@@ -18,6 +19,8 @@ class Utils : public QObject
 public:
     static QString getRandomString(int len);
     static QString configFileName(const QString &clientName);
+    static QStringList configFileNames(const QStringList &clientNames);
+    static QStringList clientNames(const QString &text);
     static QString SafeBase64Decode(QString string);
     static QString VerifyJsonString(const QString &source);
     static QString JsonToString(const QJsonObject &json, QJsonDocument::JsonFormat format);

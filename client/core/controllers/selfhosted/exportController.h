@@ -30,7 +30,21 @@ public:
         ErrorCode errorCode = ErrorCode::NoError;
         QString config;
         QString nativeConfigString;
+        QString fileExtension;
         QList<QString> qrCodes;
+    };
+
+    struct ExportedConfig
+    {
+        QString clientName;
+        QString fileName;
+        QString config;
+    };
+
+    struct BatchExportResult
+    {
+        ErrorCode errorCode = ErrorCode::NoError;
+        QList<ExportedConfig> configs;
     };
 
     explicit ExportController(SecureServersRepository* serversRepository,
@@ -43,6 +57,9 @@ public:
     ExportResult generateWireGuardConfig(const QString &serverId, const QString &clientName);
     ExportResult generateAwgConfig(const QString &serverId, int containerIndex, const QString &clientName);
     ExportResult generateXrayConfig(const QString &serverId, const QString &clientName);
+
+    BatchExportResult generateConfigs(const QString &serverId, int containerIndex, bool nativeFormat,
+                                      const QString &clientNames);
 
 signals:
     void appendClientRequested(const QString &serverId, const QString &clientId, const QString &clientName, DockerContainer container);

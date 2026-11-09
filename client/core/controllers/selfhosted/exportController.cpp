@@ -11,6 +11,7 @@
 #include "core/protocols/protocolUtils.h"
 #include "core/utils/constants/configKeys.h"
 #include "core/utils/constants/protocolConstants.h"
+#include "core/utils/utilities.h"
 #include "core/models/selfhosted/selfHostedAdminServerConfig.h"
 #include "core/models/containerConfig.h"
 #include "core/models/protocolConfig.h"
@@ -44,6 +45,7 @@ ExportController::ExportResult ExportController::generateFullAccessConfig(const 
     QByteArray compressedConfig = QJsonDocument(serverJson).toJson();
     compressedConfig = qCompress(compressedConfig, 8);
     result.config = generateVpnUrl(compressedConfig);
+    result.fileExtension = ".vpn";
     result.qrCodes = generateQrCodesFromConfig(compressedConfig);
 
     return result;
@@ -107,6 +109,7 @@ ExportController::ExportResult ExportController::generateConnectionConfig(const 
     QByteArray compressedConfig = QJsonDocument(serverJson).toJson();
     compressedConfig = qCompress(compressedConfig, 8);
     result.config = generateVpnUrl(compressedConfig);
+    result.fileExtension = ".vpn";
     result.qrCodes = generateQrCodesFromConfig(compressedConfig);
 
     return result;
@@ -195,6 +198,7 @@ ExportController::ExportResult ExportController::generateOpenVpnConfig(const QSt
         result.config.append(line + "\n");
     }
 
+    result.fileExtension = ".ovpn";
     result.qrCodes = generateQrCodesFromConfig(result.config.toUtf8());
     return result;
 }
@@ -220,6 +224,8 @@ ExportController::ExportResult ExportController::generateWireGuardConfig(const Q
     for (const QString &line : std::as_const(lines)) {
         result.config.append(line + "\n");
     }
+
+    result.fileExtension = ".conf";
 
     const QString qr = qrCodeUtils::generatePlainQrCodeImage(result.config.toUtf8());
     if (!qr.isEmpty()) {
@@ -254,6 +260,8 @@ ExportController::ExportResult ExportController::generateAwgConfig(const QString
     for (const QString &line : std::as_const(lines)) {
         result.config.append(line + "\n");
     }
+
+    result.fileExtension = ".conf";
 
     const QString qr = qrCodeUtils::generatePlainQrCodeImage(result.config.toUtf8());
     if (!qr.isEmpty()) {
@@ -345,8 +353,47 @@ ExportController::ExportResult ExportController::generateXrayConfig(const QStrin
     }
 
     result.nativeConfigString = amnezia::serialization::vless::Serialize(vlessServer, APPLICATION_NAME);
+    result.fileExtension = ".json";
 
     return result;
+}
+
+ExportController::BatchExportResult ExportController::generateConfigs(const QString &serverId, int containerIndex,
+                                                                     bool nativeFormat, const QString &clientNamesText)
+{
+    BatchExportResult batch;
+
+    const DockerContainer container = static_cast<DockerContainer>(containerIndex);
+    const QStringList clientNames = Utils::clientNames(clientNamesText);
+    const QStringList fileNames = Utils::configFileNames(clientNames);
+
+    for (int i = 0; i < clientNames.size(); ++i) {
+        const QString &clientName = clientNames.at(i);
+
+        ExportResult result;
+        if (!nativeFormat) {
+            result = generateConnectionConfig(serverId, containerIndex, clientName);
+        } else if (container == DockerContainer::Awg || container == DockerContainer::Awg2) {
+            result = generateAwgConfig(serverId, containerIndex, clientName);
+        } else if (container == DockerContainer::WireGuard) {
+            result = generateWireGuardConfig(serverId, clientName);
+        } else if (container == DockerContainer::OpenVpn) {
+            result = generateOpenVpnConfig(serverId, clientName);
+        } else if (container == DockerContainer::Xray) {
+            result = generateXrayConfig(serverId, clientName);
+        } else {
+            result.errorCode = ErrorCode::InternalError;
+        }
+
+        if (result.errorCode != ErrorCode::NoError) {
+            batch.errorCode = result.errorCode;
+            return batch;
+        }
+
+        batch.configs.append({ clientName, fileNames.at(i) + result.fileExtension, result.config });
+    }
+
+    return batch;
 }
 
 void ExportController::updateClientManagementModel(const QString &serverId, int containerIndex)
