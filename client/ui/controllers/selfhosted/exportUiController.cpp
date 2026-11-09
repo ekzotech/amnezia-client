@@ -4,6 +4,7 @@
 
 #include "../systemController.h"
 #include "core/utils/qrCodeUtils.h"
+#include "core/utils/utilities.h"
 
 ExportUiController::ExportUiController(ExportController* exportController, QObject *parent)
     : QObject(parent),
@@ -90,6 +91,11 @@ QString ExportUiController::getNativeConfigString()
 QList<QString> ExportUiController::getQrCodes()
 {
     return m_qrCodes;
+}
+
+QString ExportUiController::fileNameForClient(const QString &clientName)
+{
+    return Utils::configFileName(clientName);
 }
 
 void ExportUiController::exportConfig(const QString &fileName)

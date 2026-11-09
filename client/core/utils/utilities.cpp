@@ -79,6 +79,18 @@ QString Utils::getRandomString(int len)
     return randomString;
 }
 
+QString Utils::configFileName(const QString &clientName)
+{
+    QString name = clientName;
+    name.remove(QRegularExpression(QStringLiteral(R"([\\/:*?\"<>|\x00-\x1f])")));
+    name.remove(QRegularExpression(QStringLiteral(R"((^[.\s]+)|([.\s]+$))")));
+
+    if (name.isEmpty()) {
+        name = QStringLiteral("client");
+    }
+    return name;
+}
+
 QString Utils::VerifyJsonString(const QString &source)
 {
     QJsonParseError error;

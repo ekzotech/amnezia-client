@@ -30,6 +30,7 @@ public slots:
 
     QString getConfig();
     QString getNativeConfigString();
+    QString fileNameForClient(const QString &clientName);
     QList<QString> getQrCodes();
 
     void exportConfig(const QString &fileName);
